@@ -38,7 +38,7 @@ end
 ark "install jzmq" do
    url 'https://github.com/zeromq/jzmq/tarball/master'
    extension "tar.gz"
-   action [ :configure, :build_with_make ]
+   action [ :configure, :install_with_make ]
 end
 
 #locate the nimbus for this storm cluster
