@@ -28,10 +28,16 @@ node.set['storm']['bin_dir'] = "#{install_dir}/bin"
 node.set['storm']['install_dir'] = install_dir
 
 # install dependency packages
-%w{unzip python zeromq jzmq}.each do |pkg|
+%w{unzip python zeromq}.each do |pkg|
   package pkg do
     action :install
   end
+end
+
+ark "install jzmq" do
+   url 'https://github.com/zeromq/jzmq/tarball/master'
+   extension "tar.gz"
+   action [ :configure, :build_with_make ]
 end
 
 #locate the nimbus for this storm cluster
